@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .content-section {
+        background: #ffffff;
+        padding: 10px 20px;
+        border: 1px solid #dddddd;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    }
+  
+    .article-title {
+        color: #444444;
+    }
+  
+    a.article-title:hover {
+        color: #428bca;
+        text-decoration: none;
+    }
+  
+    .article-content {
+        white-space: pre-line;
+    }
+  
+    .article-img {
+        height: 65px;
+        width: 65px;
+        margin-right: 16px;
+    }
+  
+    .article-metadata {
+        padding-bottom: 1px;
+        margin-bottom: 4px;
+        border-bottom: 1px solid #e3e3e3
+    }
+  
+    .article-metadata a:hover {
+        color: #333;
+        text-decoration: none;
+    }
+</style>
+
+    {% for post in posts %}
+
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+                <small class="text-muted">{{post.date_posted}}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+        </div>
+    </article>
+        <!-- <strong>{{ post.author }}</strong><br>
+        {{ post.date_posted }}<br>
+        {{ post.title }}<br>
+        {{ post.content }}<br><br><br> -->
+    {% endfor %}
+    
+{% endblock content %}

@@ -1,0 +1,55 @@
+
+<style type="text/css">
+    header{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 20px 50px;
+        box-shadow: 0 1px 8px #ddd;
+    }
+    #nav-title {
+        margin-right: auto;
+        font-size: 2rem;
+        text-decoration: none;
+    }
+    header li{
+        list-style: none;
+        display: inline-block;
+        padding: 0 20px;
+    }
+    header a{
+        text-decoration: none;
+        color: #555;
+        transition: all 0.3s ease 0s;
+    }
+    header a:hover {
+        color: #c11829;
+        text-decoration: underline;
+    }
+    #register{
+        border: 2px solid rgb(26, 95, 192);
+        padding: 5px;
+    }
+    #register:hover{
+        background-color: grey;
+        color: #ddd;
+        border: 2px solid red;
+    }
+</style>
+
+<header>
+    <a id="nav-title" href="#">E-COM</a>
+    <nav class="nav navbar-dark bg-steel">
+        <ul>
+            {% if user.is_authenticated %}
+                <p>hi,{{user}}</p>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a id ="register" href="{% url 'register' %}" >Register</a></li>
+            {% endif %}
+    
+        </ul>
+    </nav>
+</header>

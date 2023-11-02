@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<!-- {% block title %}
+Login Here
+{% endblock %} -->
+
+{% block content %}
+
+<form method="POST">
+	{% csrf_token %}
+
+
+	
+	<fieldset class="form-group">
+		<legend class="border-bottom mb-4">Log In</legend>
+		{{ form }}
+	</fieldset>
+	<div class="form-group">
+		<button type="submit" class= "btn btn-success" value="Login">Login</button>
+	</div>
+</form>
+<div class="border-top pt-3">
+	<small><p>Don't have an account? Create one <a href="{% url 'register' %}">here</a></p></small>
+</div>
+{% endblock content %}
