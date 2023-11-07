@@ -31,9 +31,9 @@
         padding: 5px;
     }
     #register:hover{
-        background-color: grey;
+        background-color: rgb(22, 2, 2);
         color: #ddd;
-        border: 2px solid red;
+        border: 2px solid rgb(76, 0, 255);
     }
 </style>
 
@@ -42,7 +42,8 @@
     <nav class="nav navbar-dark bg-steel">
         <ul>
             {% if user.is_authenticated %}
-                <p>hi,{{user}}</p>
+                <p>Hello, {{user}}</p>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
             
             {% else %}

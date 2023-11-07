@@ -8,11 +8,12 @@ from account.forms import (
     CreateUserForm,
     # UserAuthenticationForm
 )
+from django.contrib.auth import views as auth_views
 
 @login_required
-def dashboard(request):
-    context= {'dashboard': dashboard}
-    return render(request , 'account/dashboard.html', context)
+def profile(request):
+    context= {'profile': profile}
+    return render(request , 'account/profile.html', context)
 
 # def login_view(request):
 #     context = {}
@@ -34,8 +35,9 @@ def register_view(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Account created!')
-            return redirect('home')
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created! Please login to continue')
+            return redirect('login')
         
     else:
         form = CreateUserForm()
@@ -43,7 +45,7 @@ def register_view(request):
     return render(request, 'account/register.html', {'form' :form})
 
 
-def logout_view(request):
-    logout(request)
-    return redirect('/')
+# def logout_view(request):
+#     logout(request)
+#     return redirect('/')
 
