@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<style type="text/css">
+
+    .container{
+        margin-left: 10px;
+        margin-top: -10px;
+    
+    } 
+</style>
+
+<div class="container">
+    <form method="POST" class="form-control">{% csrf_token %}
+        <fieldset class="form-group">
+            <strong><legend class="border-bottom mb-4 text-primary ">Blog Post</legend></strong>
+            
+                <strong>{{form.title.label_tag}}</strong><br>
+                {{form.title}}<br>
+                <strong>{{form.content.label_tag}}</strong><br>
+                {{form.content}}
+        </fieldset>
+        <div class="form-group pt-3 pb-3">
+            <button type="submit" class="btn btn-primary">Post</button>
+        </div>
+
+    </form>
+    
+</div>
+
+{% endblock content %}
