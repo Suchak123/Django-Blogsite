@@ -6,42 +6,50 @@
 <style type="text/css">
 
     .container{
-        margin: 20px;
-        padding: 20px;
+        margin: 15px;
+        padding: 15px;
+
     }
+    form{
+        background-image: url("https://t4.ftcdn.net/jpg/01/28/98/53/360_F_128985367_mNdX0b56w6OcgiyUDnZwukpK1bkpfWwI.jpg");
+        color: white;
+
+    }
+   
 </style>
 
 <div class="container">
     <form method="POST" class="form-control">{% csrf_token %}
 
-        
-        <label for="Username">{{form.username.label}}</label><br>
-        {{form.username}}
+        <div class="register-box text-light">
+            <label for="Username">{{form.username.label}}</label><br>
+            {{form.username}}
 
-        </br>
-        </br>
-        {{form.email.label}}
-        </br>
-        
-        {{form.email}}
-        </br>
-        </br>
-        
-        {{form.password1.label}}
-        </br>
-        {{form.password1}}
-        </br>
-        </br>
-        {{form.password2.label}}
-        </br>
-        {{form.password2}}
-        </br>
-        </br> 
-        <button type="submit" class="btn btn-primary">Sign in</button>
+            </br>
+            </br>
+            {{form.email.label}}
+            </br>
+            
+            {{form.email}}
+            </br>
+            </br>
+            
+            {{form.password1.label}}
+            </br>
+            {{form.password1}}
+            </br>
+            </br>
+            {{form.password2.label}}
+            </br>
+            {{form.password2}}
+            </br>
+            </br> 
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
 
     </form>
     <div class="border-top pt-3 ">
-        <small class="text-muted ">
+        <small class="text-light">
             Already Have an Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
         </small>
     </div>

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 
-<!-- {% block title %}
-Login Here
-{% endblock %} -->
+{% block title %}
+Login 
+{% endblock %}
 
 {% block content %}
 
@@ -16,11 +16,14 @@ Login Here
 		<legend class="border-bottom mb-4">Log In</legend>
 		{{ form.as_p }}
 	</fieldset>
-	<div class="form-group">
+	<div class="form-group pt-2 pb-2">
 		<button type="submit" class= "btn btn-success" value="Login">Login</button>
+		<small class="text-light ml-2"><a href="{% url 'password_reset' %}">Forgot password?</a></small>
 	</div>
-</form>
-<div class="border-top pt-3">
+</form> 
+ 
+
+<div class="border-top pt-2">
 	<small><p>Don't have an account? Create one <a href="{% url 'register' %}">here</a></p></small>
 </div>
 {% endblock content %}

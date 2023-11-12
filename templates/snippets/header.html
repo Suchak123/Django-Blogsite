@@ -6,7 +6,7 @@
         align-items: center;
         padding: 20px 50px;
         box-shadow: 0 1px 8px #ddd;
-        background-image: url("https://t4.ftcdn.net/jpg/01/28/98/53/360_F_128985367_mNdX0b56w6OcgiyUDnZwukpK1bkpfWwI.jpg");
+        /* background-image: url("https://t4.ftcdn.net/jpg/01/28/98/53/360_F_128985367_mNdX0b56w6OcgiyUDnZwukpK1bkpfWwI.jpg"); */
     }
     #nav-title {
         margin-right: auto;
@@ -22,7 +22,9 @@
     header a{
         text-decoration: none;
         color: #555;
-        transition: all 0.3s ease 0s;
+        transition: all 0.5s ease 0s;
+        color: white;
+        padding-top: 25px;
     }
     header a:hover {
         color: #c11829;
@@ -33,25 +35,33 @@
         padding: 5px;
     }
     #register:hover{
-        background-color: rgb(187, 15, 15);
-        color: #e4e450;
+        background-color: rgba(145, 91, 91, 0.89);
+        color: #f8f8f3;
         border: 2px solid rgb(13, 3, 37);
     }
+    /* p{
+        color: white;
+    } */
     
 </style>
 
 <header>
 
-    <a id="nav-title" href="#">E-COM</a>
+    <a id="nav-title" href="{% url 'blog-home' %}" style="padding-top: 5px;">Django Blogverse</a>
     <nav class="nav navbar-dark bg-steel ">
         <ul>
+
             {% if user.is_authenticated %}
                 <p>Hello, {{user}}</p>
+
+                <li><a href="{% url 'blog-home' %}">Home</a></li>
                 <li><a href="{% url 'post-create' %}">New Post</a></li>
                 <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
             
             {% else %}
+
+                <li><a href="{% url 'blog-home' %}">Home</a></li>
                 <li><a href="{% url 'login' %}">Login</a></li>
                 <li><a id ="register" href="{% url 'register' %}" >Register</a></li>
             {% endif %}

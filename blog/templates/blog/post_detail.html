@@ -12,14 +12,16 @@
             margin-bottom: 20px;
             display: flex;
             flex-direction: row;
+            background-image: url("https://t4.ftcdn.net/jpg/01/28/98/53/360_F_128985367_mNdX0b56w6OcgiyUDnZwukpK1bkpfWwI.jpg");
+
         }
     
         .article-title {
-            color: #444444;
+            color: #ffffff;
         }
     
         a.article-title:hover {
-            color: #428bca;
+            color: #eef0f2;
             text-decoration: none;
         }
     
@@ -40,7 +42,7 @@
         }
     
         .article-metadata a:hover {
-            color: #333;
+            color: #f7f2f2;
             text-decoration: none;
         }
     </style>
@@ -49,8 +51,8 @@
         <img class='rounded-circle article-img' src="{{ object.author.profile.image.url }}">
         <div class="media-body">
             <div class="article-metadata">
-                <a class="mr-2" href="#">{{ object.author }}</a>
-                <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+                <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+                <small class="text-white">{{ object.date_posted|date:"F d, Y" }}</small>
                 {% if object.author == user %}
                     
                     <div>

@@ -8,17 +8,24 @@
     .container{
         margin-left: 10px;
         margin-top: -10px;
+    }
+    form{
+        background-image: url("https://t4.ftcdn.net/jpg/01/28/98/53/360_F_128985367_mNdX0b56w6OcgiyUDnZwukpK1bkpfWwI.jpg");
+
+    }
+    strong{
+        color: white;
+    }
     
-    } 
 </style>
 
 <div class="container">
     <form method="POST" class="form-control">{% csrf_token %}
         <fieldset class="form-group">
-            <strong><legend class="border-bottom mb-4 text-primary ">Blog Post</legend></strong>
+            <strong><legend class="border-bottom mb-4 text-light ">Blog Post</legend></strong>
             
                 <strong>{{form.title.label_tag}}</strong><br>
-                {{form.title}}<br>
+                {{form.title}}<br><br>
                 <strong>{{form.content.label_tag}}</strong><br>
                 {{form.content}}
         </fieldset>
