@@ -9,18 +9,22 @@
         margin-left: 10px;
         margin-top: -10px;
     
-    } 
+    }
+    form{
+        background-image: url("https://t4.ftcdn.net/jpg/01/28/98/53/360_F_128985367_mNdX0b56w6OcgiyUDnZwukpK1bkpfWwI.jpg");
+    
+    }
 </style>
 
 <div class="container">
     <form method="POST" class="form-control">{% csrf_token %}
         <fieldset class="form-group">
-            <strong><legend class="border-bottom mb-4 text-secondary  ">Delete Post</legend></strong>
-            <h2>Are you sure you want to delete the post "{{object.title}}"</h2>
+            <strong><legend class="border-bottom mb-4 text-white  ">Delete Post</legend></strong>
+            <h2 class="text-light">Are you sure you want to delete the post "{{object.title}}"</h2>
         </fieldset>
         <div class="form-group pt-3 pb-3">
             <button type="submit" class="btn btn-outline-danger">Yes, Delete</button>
-            <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id%}">Cancel</a>
+            <a class="btn btn-outline-light" href="{% url 'post-detail' object.id%}">Cancel</a>
         </div>
 
     </form>

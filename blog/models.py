@@ -9,6 +9,7 @@ class Post(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)#date for creation
     author = models.ForeignKey(User , on_delete=models.CASCADE)
     date_modified = models.DateTimeField(auto_now=True)
+    
 
     def __str__(self):
         return self.title
