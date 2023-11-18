@@ -43,6 +43,17 @@
             color: #f3ecec;
             text-decoration: none;
         }
+        img {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            
+        } 
+
+        img:hover{
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+
+        }
     </style>
 
     {% for post in posts %}
@@ -54,6 +65,9 @@
                     <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
                     <small class="text-white">{{ post.date_posted|date:"F d, Y" }}</small>
                 </div>
+                {% if post.image %}
+                    <img class="border-light img-fluid rounded " src="{{post.image.url}}">
+                {% endif %}
                 <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
                 <p class="article-content">{{ post.content }}</p>
             </div>
